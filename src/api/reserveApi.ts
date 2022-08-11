@@ -11,6 +11,9 @@ interface PatchReserveHotelParams {
 }
 
 export const patchReserveHotel = () => {
+  /* const headers = {
+    'Content-Type': 'application/json',
+  }; */
   const fetch = async ({
     name,
     check_in,
@@ -18,12 +21,20 @@ export const patchReserveHotel = () => {
     occupancy,
   }: PatchReserveHotelParams) => {
     try {
-      await axios.post(`${BASE_URL}/reserved`, {
-        name,
-        check_in,
-        check_out,
-        occupancy,
-      });
+      await axios.post(
+        `${BASE_URL}/reserved`,
+        {
+          name,
+          check_in,
+          check_out,
+          occupancy,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
     } catch (error) {
       console.log(error);
     }

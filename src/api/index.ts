@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://server-mu-teal.vercel.app';
+export const BASE_URL = process.env.REACT_APP_BASE_URL;
